@@ -17,7 +17,20 @@ class TeamMatches extends Component {
     const data = await response.json()
     console.log(data.latest_match_details)
 
-    data.latest_match_details.map(each => console.log(each))
+    const lastMatchDetails = data.latest_match_details.map(each => ({
+      competingTeam: each.competing_team,
+      competingTeamLogo: each.competing_team_logo,
+      date: each.date,
+      firstInnings: each.first_innings,
+      id: each.id,
+      manOfTheMatch: each.man_of_the_match,
+      matchStatus: each.match_status,
+      result: each.result,
+      secondInnings: each.second_innings,
+      umpires: each.umpires,
+      venue: each.venue,
+    }))
+    console.log(lastMatchDetails)
   }
 
   render() {
